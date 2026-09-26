@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diego Asensio Granell · CV para Fourvenues</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F3FA; --surface:#FFFFFF; --ink:#1E1733; --muted:#5E5673;
+  --line:#DCD4E8; --accent:#C9336B; --accent-ink:#FFFFFF; --glow:#2E8F84;
+  --stub:#1E1733; --stub-ink:#F6F3FA;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#16112A; --surface:#211A3A; --ink:#F2EEF7; --muted:#B3A9C9;
+    --line:#3A3058; --accent:#F0578F; --accent-ink:#16112A; --glow:#4FD1BF;
+    --stub:#F2EEF7; --stub-ink:#16112A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16112A; --surface:#211A3A; --ink:#F2EEF7; --muted:#B3A9C9;
+  --line:#3A3058; --accent:#F0578F; --accent-ink:#16112A; --glow:#4FD1BF;
+  --stub:#F2EEF7; --stub-ink:#16112A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:1rem; line-height:1.6;
+}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",system-ui,sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:52rem;margin:0 auto;padding:2rem 1.25rem 4rem}
+
+/* ---------- Ticket hero ---------- */
+.ticket{
+  display:grid; grid-template-columns:1fr auto;
+  background:var(--surface); border:1px solid var(--line); border-radius:18px;
+  position:relative; overflow:hidden;
+}
+.ticket-main{padding:2rem 2rem 1.75rem}
+.ticket h1{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:800;letter-spacing:-.02em}
+.role{font-family:"Bricolage Grotesque",sans-serif;font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:600;color:var(--accent);margin:.6rem 0 1rem}
+.pitch{max-width:34rem;color:var(--muted);margin:0 0 1.25rem}
+.contact{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;font-size:.92rem;margin:0;padding:0;list-style:none}
+.contact a{color:var(--ink)}
+.stub{
+  background:var(--stub); color:var(--stub-ink);
+  padding:2rem 1.5rem; width:13rem; display:flex; flex-direction:column; justify-content:space-between; gap:1rem;
+  border-left:2px dashed var(--line); position:relative;
+}
+.ticket::before,.ticket::after{
+  content:""; position:absolute; right:calc(13rem - 14px); width:28px; height:28px; border-radius:50%;
+  background:var(--bg); border:1px solid var(--line); z-index:2;
+}
+.ticket::before{top:-15px}.ticket::after{bottom:-15px}
+.stub dl{margin:0;display:grid;gap:.7rem}
+.stub dt{font-size:.78rem;opacity:.7}
+.stub dd{margin:0;font-weight:600;font-family:"Bricolage Grotesque",sans-serif;font-size:1.05rem;line-height:1.2}
+.barcode{height:46px;background:repeating-linear-gradient(90deg,var(--stub-ink) 0 2px,transparent 2px 4px,var(--stub-ink) 4px 7px,transparent 7px 9px,var(--stub-ink) 9px 10px,transparent 10px 13px);opacity:.85;border-radius:2px}
+
+/* ---------- Mode switch ---------- */
+.switch{margin:2rem 0 2.5rem}
+.switch h2{font-size:1.1rem;font-weight:600;margin-bottom:.8rem}
+.modes{display:flex;flex-wrap:wrap;gap:.6rem}
+.mode{
+  font:inherit;font-weight:600;cursor:pointer;
+  padding:.65rem 1.1rem;border-radius:999px;
+  background:transparent;color:var(--ink);border:1.5px solid var(--line);
+}
+.mode[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.mode:focus-visible,.theme:focus-visible,a:focus-visible{outline:3px solid var(--glow);outline-offset:2px}
+.hint{font-size:.88rem;color:var(--muted);margin:.7rem 0 0}
+
+/* ---------- Sections ---------- */
+#blocks{display:flex;flex-direction:column;gap:2.75rem}
+section h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:800;letter-spacing:-.01em;margin-bottom:1rem}
+section.lead h2{color:var(--accent)}
+.flash{animation:flash .9s ease-out}
+@keyframes flash{from{box-shadow:inset 4px 0 0 var(--accent)}to{box-shadow:inset 0 0 0 transparent}}
+section{padding-left:1rem;border-left:3px solid transparent}
+section.lead{border-left-color:var(--accent)}
+ul.items{margin:0;padding-left:1.1rem}
+ul.items li{margin:.35rem 0;max-width:40rem}
+ul.items strong{font-weight:600}
+
+/* Timeline (real sequence) */
+.timeline{list-style:none;margin:0;padding:0;counter-reset:t}
+.timeline li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--line)}
+.timeline li:first-child{border-top:none}
+.when{color:var(--muted);font-size:.9rem;padding-top:.15rem}
+.timeline h3{font-size:1.15rem;font-weight:600}
+.timeline p{margin:.2rem 0 0;color:var(--muted);font-size:.95rem}
+.now h3::after{content:"Actual";margin-left:.6rem;font-family:"Public Sans",sans-serif;font-size:.72rem;font-weight:600;padding:.15rem .5rem;border-radius:999px;background:var(--glow);color:var(--bg);vertical-align:middle}
+
+.offstage{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem}
+.offstage p{margin:0;max-width:38rem}
+
+footer{margin-top:3rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.theme{font:inherit;font-size:.85rem;cursor:pointer;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:.35rem .8rem}
+
+@media (max-width:640px){
+  .ticket{grid-template-columns:1fr}
+  .stub{width:auto;border-left:none;border-top:2px dashed var(--line);flex-direction:row;align-items:flex-end}
+  .stub dl{grid-template-columns:1fr 1fr;flex:1}
+  .barcode{width:70px;height:60px}
+  .ticket::before,.ticket::after{display:none}
+  .ticket-main{padding:1.5rem 1.25rem}
+  .timeline li{grid-template-columns:1fr;gap:.2rem}
+}
+@media (prefers-reduced-motion:reduce){.flash{animation:none}}
+@media print{
+  :root{--bg:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#bbb;--accent:#A0224F;--stub:#fff;--stub-ink:#000}
+  .switch,footer{display:none}
+  .wrap{padding:0}
+  section{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <header class="ticket">
+    <div class="ticket-main">
+      <h1>Diego Asensio Granell</h1>
+      <p class="role">Candidato a Accounting &amp; Tax Specialist en Fourvenues</p>
+      <p class="pitch">Asesor fiscal con cerca de cuatro años en RSM Spain, especializado en Impuesto sobre Sociedades e IVA. Busco dar el salto in-house a una empresa que crece rápido y donde automatizar sea parte del trabajo.</p>
+      <ul class="contact">
+        <li>Riba-roja de Túria (Valencia)</li>
+        <li><a href="tel:+34662005726">662 005 726</a></li>
+        <li><a href="mailto:d.a.g1@hotmail.com">d.a.g1@hotmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/diegoasensiogranell/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+    <aside class="stub" aria-label="Resumen de la candidatura">
+      <dl>
+        <div><dt>Puesto</dt><dd>Accounting &amp; Tax</dd></div>
+        <div><dt>Lugar</dt><dd>Valencia, híbrido</dd></div>
+        <div><dt>Experiencia</dt><dd>~4 años en fiscal</dd></div>
+      </dl>
+      <div class="barcode" aria-hidden="true"></div>
+    </aside>
+  </header>
+
+  <div class="switch">
+    <h2>¿Por dónde quieres empezar?</h2>
+    <div class="modes" role="group" aria-label="Orden del CV">
+      <button class="mode" data-mode="fiscal" aria-pressed="true">Fiscalidad</button>
+      <button class="mode" data-mode="contable" aria-pressed="false">Contabilidad</button>
+      <button class="mode" data-mode="tech" aria-pressed="false">Automatización</button>
+    </div>
+    <p class="hint">El CV se reordena para mostrar primero lo que más te interesa.</p>
+  </div>
+
+  <div id="blocks">
+
+    <section id="fiscal" data-order-fiscal="1" data-order-contable="3" data-order-tech="3">
+      <h2>Fiscalidad</h2>
+      <ul class="items">
+        <li><strong>Impuesto sobre Sociedades:</strong> pagos fraccionados y modelo 200 de clientes, incluyendo BINs y reserva de capitalización.</li>
+        <li><strong>IVA:</strong> declaraciones mensuales y trimestrales y conciliación del SII con la contabilidad, para que lo declarado y lo registrado cuadren.</li>
+        <li><strong>IVA internacional:</strong> operaciones intracomunitarias y con terceros países, inversión del sujeto pasivo y modificación de bases imponibles por créditos incobrables.</li>
+        <li><strong>AEAT:</strong> gestión de notificaciones y requerimientos, en plazo y con la documentación soporte necesaria.</li>
+      </ul>
+    </section>
+
+    <section id="contable" data-order-fiscal="3" data-order-contable="1" data-order-tech="4">
+      <h2>Contabilidad</h2>
+      <ul class="items">
+        <li>Revisión de la contabilidad de clientes y resolución de sus consultas contables del día a día.</li>
+        <li>Limpieza y estructuración de balances de sumas y saldos de varias sociedades.</li>
+        <li>Tres años como administrativo y técnico contable en KHIAM 11 SL antes de dar el salto a la asesoría.</li>
+      </ul>
+    </section>
+
+    <section id="tech" data-order-fiscal="4" data-order-contable="4" data-order-tech="1">
+      <h2>Automatización y tecnología</h2>
+      <ul class="items">
+        <li>Chatbot de IRPF desarrollado y desplegado en Vercel sobre la API de Anthropic.</li>
+        <li>Chatbot interno para que los compañeros resolvieran dudas de la campaña de la Renta 2025.</li>
+        <li>Colaboración con el equipo de IT en la automatización de tareas del departamento.</li>
+        <li>Calculadoras en Excel para liquidaciones complejas. Uso Claude a diario.</li>
+        <li>NetSuite: conozco el entorno, hasta ahora solo para imputar horas a proyectos.</li>
+      </ul>
+    </section>
+
+    <section id="exp" data-order-fiscal="2" data-order-contable="2" data-order-tech="2">
+      <h2>Trayectoria</h2>
+      <ol class="timeline">
+        <li class="now">
+          <span class="when">Sep 2026 – hoy</span>
+          <div><h3>Senior Tax Consultant, RSM Spain</h3><p>Pymes, empresas mid-market y grupos societarios.</p></div>
+        </li>
+        <li>
+          <span class="when">Jul 2023 – 2026</span>
+          <div><h3>Junior Tax Consultant, RSM Spain</h3><p>Cumplimiento de IS e IVA y relación con la AEAT.</p></div>
+        </li>
+        <li>
+          <span class="when">Oct 2022 – 2023</span>
+          <div><h3>Becario de outsourcing, RSM Spain</h3></div>
+        </li>
+        <li>
+          <span class="when">2019 – 2022</span>
+          <div><h3>Administrativo y técnico contable, KHIAM 11 SL</h3></div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="edu" data-order-fiscal="5" data-order-contable="5" data-order-tech="5">
+      <h2>Formación</h2>
+      <ul class="items">
+        <li><strong>Curso de consolidación fiscal</strong>, en curso (2026).</li>
+        <li><strong>Máster en Asesoría Fiscal</strong>, Universidad Católica de Valencia (2023–2024).</li>
+        <li><strong>Grado en ADE</strong>, Universitat Politècnica de València (2019–2023).</li>
+        <li><strong>Técnico Superior en Administración y Finanzas</strong>, ILERNA (2017–2019).</li>
+      </ul>
+    </section>
+
+    <section id="off" data-order-fiscal="6" data-order-contable="6" data-order-tech="6">
+      <h2>Fuera de la oficina</h2>
+      <div class="offstage">
+        <p>Pincho desde los 15 años, siempre a nivel amateur y local: fallas de pueblo y eventos privados. Conozco la noche desde detrás de la cabina; ahora me gustaría ayudar a que siga llenando pistas desde el otro lado, el de los números.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <button class="theme pdf" type="button">Descargar en PDF</button>
+    <button class="theme" type="button">Cambiar tema</button>
+  </footer>
+</main>
+
+<script>
+(function(){
+  var blocks=document.querySelectorAll('#blocks > section');
+  var buttons=document.querySelectorAll('.mode');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function apply(mode,animate){
+    blocks.forEach(function(s){
+      s.style.order=s.getAttribute('data-order-'+mode);
+      s.classList.toggle('lead',s.id===mode);
+    });
+    buttons.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.mode===mode))});
+    if(animate&&!reduce){
+      var lead=document.getElementById(mode);
+      lead.classList.remove('flash');void lead.offsetWidth;lead.classList.add('flash');
+    }
+    try{history.replaceState(null,'','?modo='+mode)}catch(e){}
+  }
+
+  buttons.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.mode,true)})});
+
+  var start='fiscal';
+  try{
+    var p=new URLSearchParams(location.search).get('modo');
+    if(p==='fiscal'||p==='contable'||p==='tech')start=p;
+  }catch(e){}
+  apply(start,false);
+
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved)}catch(e){}
+  document.querySelector('.pdf').addEventListener('click',function(){window.print()});
+  document.querySelector('.theme:not(.pdf)').addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
